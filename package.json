@@ -1,14 +1,38 @@
 {
-  "name": "gpass",
+  "name": "@thpadelis/gpass",
   "version": "1.0.0",
-  "description": "Simple password generator",
+  "description": "gpass stands for Password Generator, it's a utility command line tool that allows you to generate random password",
   "main": "index.js",
   "preferGlobal": true,
-  "bin": "./index.js",
-  "author": "Padelis Theodosiou",
+  "bin": {
+    "@thpadelis/gpass": "./index.js",
+    "gpass": "./index.js"
+  },
+  "author": {
+    "name": "Padelis Theodosiou",
+    "email": "padelis.theodosiou@gmail.com",
+    "url": "http://padelis.theodosiou.me/"
+  },
+  "files": [
+    "./index.js",
+    "src/*"
+  ],
   "license": "MIT",
   "dependencies": {
     "clipboardy": "^2.3.0",
     "commander": "^8.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThPadelis/gpass.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ThPadelis/gpass/issues"
+  },
+  "keywords": [
+    "password",
+    "generator",
+    "cli"
+  ],
+  "homepage": ""
 }

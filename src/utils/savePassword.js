@@ -5,7 +5,7 @@ const os = require("os");
 const savePassword = (password) => {
   if (!password) return;
   try {
-    const path = join(__dirname, "../../password.txt");
+    const path = join(process.cwd(), "./password.txt");
     const data = password + os.EOL;
     const options = { encoding: "utf-8", flag: "a" };
     writeFileSync(path, data, options);
