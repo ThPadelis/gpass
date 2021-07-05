@@ -32,14 +32,13 @@ gpass [options]
 ```
 
 Options:
-
-`-V`, `--version` output the version number
-`-l`, `--length <number>` length of password (default: "10")
-`-s`, `--save` save password to passwords.txt in your current location (default: false)
-`-nn`, `--no-numbers` remove numbers
-`-ns`, `--no-symbols` remove symbols
-`-cp` `--copy` copy to clipboard (default: false)
-`-h`, `--help` display help for command
+- `-V`, `--version` output the version number
+- `-l`, `--length <number>` length of password (default: "10")
+- `-s`, `--save` save password to passwords.txt in your current location (default: false)
+- `-nn`, `--no-numbers` remove numbers
+- `-ns`, `--no-symbols` remove symbols
+- `-cp` `--copy` copy to clipboard (default: false)
+- `-h`, `--help` display help for command
 
 ## Advice
 
