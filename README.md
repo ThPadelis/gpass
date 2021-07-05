@@ -5,7 +5,7 @@
 - [What is gPass?](#what-is-gpass)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Examples](#example)
+- [Examples](#examples)
 - [Advice](#advice)
 
 ## What is gPass?
