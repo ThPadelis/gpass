@@ -1,0 +1,14 @@
+{
+  "name": "gpass",
+  "version": "1.0.0",
+  "description": "Simple password generator",
+  "main": "index.js",
+  "preferGlobal": true,
+  "bin": "./index.js",
+  "author": "Padelis Theodosiou",
+  "license": "MIT",
+  "dependencies": {
+    "clipboardy": "^2.3.0",
+    "commander": "^8.0.0"
+  }
+}
