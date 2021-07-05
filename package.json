@@ -5,7 +5,6 @@
   "main": "index.js",
   "preferGlobal": true,
   "bin": {
-    "@thpadelis/gpass": "./index.js",
     "gpass": "./index.js"
   },
   "author": {
