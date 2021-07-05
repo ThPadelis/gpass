@@ -4,6 +4,7 @@ const clipboardy = require("clipboardy");
 const createPassword = require("./src/utils/createPassword");
 const savePassword = require("./src/utils/savePassword");
 const isBetween = require("./src/utils/isBetween");
+const log = require("./src/utils/logger");
 
 program
   .version("1.0.0")
@@ -19,24 +20,19 @@ const { length, save, numbers, symbols, copy } = program.opts();
 
 // Check length
 if (!isBetween(length)) {
-  console.log({
-    message: "Password length must be between 1 and 32 characters",
-  });
+  log("error", "Password length must be between 1 and 32 characters");
   return;
 }
 
 // Create password
 const password = createPassword(length, numbers, symbols);
-console.log({ message: "Password created", password });
+log("success", "Password generated", password);
 
 // Save password
-if (save) {
-  savePassword(password);
-  console.log({ message: "Password saved to file", password });
-}
+if (save) savePassword(password);
 
 // Copy to clipboard
 if (copy) {
   clipboardy.writeSync(password);
-  console.log({ message: "Password copied to clipboard", password });
+  log("info", "Password successfully copied to clipboard!");
 }

@@ -1,6 +1,7 @@
 const { join } = require("path");
 const { writeFileSync } = require("fs");
 const os = require("os");
+const log = require("./logger");
 
 const savePassword = (password) => {
   if (!password) return;
@@ -9,19 +10,13 @@ const savePassword = (password) => {
     const data = password + os.EOL;
     const options = { encoding: "utf-8", flag: "a" };
     writeFileSync(path, data, options);
+    log("info", "Password successfully saved to file");
   } catch (error) {
-    console.log("Error", error.toString());
-    const path = join(__dirname, "../../error.log");
-    let data = {
-      createdAt: new Date().toISOString(),
-      error: error
-        .toString()
-        .replace(/^(.*?)\:/, "")
-        .trim(),
-    };
-    data = JSON.stringify(data) + os.EOL;
-    const options = { encoding: "utf-8", flag: "a" };
-    writeFileSync(path, data, options);
+    let err = error
+      .toString()
+      .replace(/^(.*?)\:/, "")
+      .trim();
+    log("error", "Failed to save file", err);
   }
 };
 

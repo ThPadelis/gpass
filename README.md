@@ -58,6 +58,10 @@ Generate password with no numbers
 gpass --no-numbers
 ```
 
+Generate password with only letters and length of 16
+```sh
+gpass -ns -nn -l 16
+```
 ## Advice
 
 1. Use `gpass` to generate random passwords.
