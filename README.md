@@ -5,6 +5,7 @@
 - [What is gPass?](#what-is-gpass)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Examples](#example)
 - [Advice](#advice)
 
 ## What is gPass?
@@ -39,6 +40,23 @@ Options:
 - `-ns`, `--no-symbols` remove symbols
 - `-cp` `--copy` copy to clipboard (default: false)
 - `-h`, `--help` display help for command
+
+## Examples
+
+Generate password with length of 20 characters
+```sh
+gpass -l 20
+```
+
+Generate password with no symbol
+```sh
+gpass --no-symbols
+```
+
+Generate password with no numbers
+```sh
+gpass --no-numbers
+```
 
 ## Advice
 
