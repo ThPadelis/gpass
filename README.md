@@ -20,11 +20,6 @@ Install the CLI globally. If you are windows user, run the command as administra
 npm install --global @thpadelis/gpass
 ```
 
-You can also use it using `npx`.
-
-```sh
-npx gpass
-```
 
 ## Usage
 
