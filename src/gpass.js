@@ -45,7 +45,7 @@ const gpass = () => {
     clipboardy.writeSync(generated);
     log(
       "info",
-      `${pin ? "PIN" : "Password"}Password successfully copied to clipboard!`
+      `${pin ? "PIN" : "Password"} successfully copied to clipboard!`
     );
   }
 };
