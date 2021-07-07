@@ -5,10 +5,11 @@ const savePassword = require("./utils/savePassword");
 const isBetween = require("./utils/isBetween");
 const log = require("./utils/logger");
 const createPIN = require("./utils/createPIN");
+const { version } = require("../package.json");
 
 const gpass = () => {
   program
-    .version("1.0.0")
+    .version(version)
     .description("Simple password generator")
     .option("-l, --length <number>", "length of password", "10")
     .option("-s, --save", "save password to passwords.txt", false)
