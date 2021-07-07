@@ -7,6 +7,9 @@
   "bin": {
     "gpass": "./index.js"
   },
+  "scripts": {
+    "test": "jest"
+  },
   "author": {
     "name": "Padelis Theodosiou",
     "email": "padelis.theodosiou@gmail.com",
@@ -14,7 +17,7 @@
   },
   "files": [
     "index.js",
-    "src/*"
+    "src/utils/*"
   ],
   "license": "MIT",
   "dependencies": {
@@ -34,5 +37,8 @@
     "generator",
     "cli"
   ],
-  "homepage": "https://github.com/ThPadelis/gpass/#readme"
+  "homepage": "https://github.com/ThPadelis/gpass/#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
 }
