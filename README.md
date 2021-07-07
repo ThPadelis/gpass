@@ -34,6 +34,7 @@ Options:
 - `-nn`, `--no-numbers` remove numbers
 - `-ns`, `--no-symbols` remove symbols
 - `-cp` `--copy` copy to clipboard (default: false)
+- `-p --pin` create PIN
 - `-h`, `--help` display help for command
 
 ## Examples
@@ -56,6 +57,11 @@ gpass --no-numbers
 Generate password with only letters and length of 16
 ```sh
 gpass -ns -nn -l 16
+```
+
+Create PIN
+```sh
+gpass -p
 ```
 ## Advice
 
