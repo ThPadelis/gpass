@@ -12,9 +12,9 @@ const savePassword = (password) => {
     writeFileSync(path, data, options);
     log("info", "Password successfully saved to file");
   } catch (error) {
-    let err = error
+    const err = error
       .toString()
-      .replace(/^(.*?)\:/, "")
+      .replace(/^(.*?)\\:/, "")
       .trim();
     log("error", "Failed to save file", err);
   }

@@ -1,3 +1,11 @@
+const generatePassword = (length, chars) => {
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    password += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return password;
+};
+
 const createPassword = (length = 10, hasNumbers = true, hasSymbols = true) => {
   const lowerCase = "abcdefghijklmnopqrstuvwxyz";
   const upperCase = lowerCase.toUpperCase();
@@ -10,14 +18,6 @@ const createPassword = (length = 10, hasNumbers = true, hasSymbols = true) => {
   hasSymbols ? (chars += symbols) : "";
 
   return generatePassword(length, chars);
-};
-
-const generatePassword = (length, chars) => {
-  let password = "";
-  for (let i = 0; i < length; i++) {
-    password += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return password;
 };
 
 module.exports = createPassword;

@@ -7,8 +7,8 @@ test("should create PIN", () => {
 });
 
 test("should be valid PIN", () => {
-  let isNumber = /^\d+$/.test(pin);
-  let hasValidLength = isBetween(pin.length, true);
+  const isNumber = /^\d+$/.test(pin);
+  const hasValidLength = isBetween(pin.length, true);
   expect(isNumber).toBeTruthy();
   expect(hasValidLength).toBeTruthy();
 });

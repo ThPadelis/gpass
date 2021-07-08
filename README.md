@@ -20,7 +20,6 @@ Install the CLI globally. If you are windows user, run the command as administra
 npm install --global @thpadelis/gpass
 ```
 
-
 ## Usage
 
 ```sh
@@ -28,41 +27,48 @@ gpass [options]
 ```
 
 Options:
+
 - `-V`, `--version` output the version number
 - `-l`, `--length <number>` length of password (default: "10")
 - `-s`, `--save` save password to passwords.txt in your current location (default: false)
 - `-nn`, `--no-numbers` remove numbers
 - `-ns`, `--no-symbols` remove symbols
 - `-cp` `--copy` copy to clipboard (default: false)
-- `-p --pin` create PIN
+- `-p`, `--pin` create PIN
 - `-h`, `--help` display help for command
 
 ## Examples
 
 Generate password with length of 20 characters
+
 ```sh
 gpass -l 20
 ```
 
 Generate password with no symbol
+
 ```sh
 gpass --no-symbols
 ```
 
 Generate password with no numbers
+
 ```sh
 gpass --no-numbers
 ```
 
 Generate password with only letters and length of 16
+
 ```sh
 gpass -ns -nn -l 16
 ```
 
 Create PIN
+
 ```sh
 gpass -p
 ```
+
 ## Advice
 
 1. Use `gpass` to generate random passwords.

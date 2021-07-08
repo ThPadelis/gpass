@@ -23,19 +23,15 @@ const gpass = () => {
 
   // Check length
   if (!isBetween(length, pin)) {
-    log(
-      "error",
-      pin
-        ? "PIN length must be between 3 and 12 characters"
-        : "Password length must be between 6 and 32 characters"
-    );
+    if (pin) log("error", "PIN length must be between 3 and 12 characters");
+    else log("error", "Password length must be between 6 and 32 characters");
     return;
   }
 
   // Create password or PIN
-  const generated = pin
-    ? createPIN(length)
-    : createPassword(length, numbers, symbols);
+  let generated;
+  if (pin) generated = createPIN(length);
+  else generated = createPassword(length, numbers, symbols);
   log("success", `${pin ? "PIN" : "Password"} generated`, generated);
 
   // Save password or PIN
@@ -44,10 +40,8 @@ const gpass = () => {
   // Copy to clipboard
   if (copy) {
     clipboardy.writeSync(generated);
-    log(
-      "info",
-      `${pin ? "PIN" : "Password"} successfully copied to clipboard!`
-    );
+    if (pin) log("info", "PIN successfully copied to clipboard!");
+    else log("info", "Password successfully copied to clipboard");
   }
 };
 
