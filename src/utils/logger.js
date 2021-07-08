@@ -11,17 +11,15 @@ const log = (level = "info", ...texts) => {
   const info = chalk.bold.blue;
   const success = chalk.bold.green;
 
-  let [title, ...rest] = texts;
-  let lvl =
-    level === "info"
-      ? info
-      : level === "success"
-      ? success
-      : level === "error"
-      ? error
-      : warning;
+  const [title, ...rest] = texts;
+  let lvl;
 
-  console.log(lvl(title) + " " + rest.join(" | "));
+  if (level === "info") lvl = info;
+  else if (level === "success") lvl = success;
+  else if (level === "error") lvl = error;
+  else lvl = warning;
+
+  console.log(`${lvl(title)} ${rest.join(" | ")}`);
 };
 
 module.exports = log;

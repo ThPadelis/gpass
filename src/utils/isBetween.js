@@ -1,6 +1,6 @@
 const isBetween = (value, isPIN = false) => {
-  min = isPIN ? 3 : 6;
-  max = isPIN ? 12 : 32;
+  const min = isPIN ? 3 : 6;
+  const max = isPIN ? 12 : 32;
   return (value - min) * (value - max) <= 0;
 };
 
