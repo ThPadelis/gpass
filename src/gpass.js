@@ -4,7 +4,6 @@ const createPassword = require("./utils/createPassword");
 const savePassword = require("./utils/savePassword");
 const isBetween = require("./utils/isBetween");
 const log = require("./utils/logger");
-const createPIN = require("./utils/createPIN");
 const { version } = require("../package.json");
 
 const gpass = () => {
@@ -13,13 +12,15 @@ const gpass = () => {
     .description("Simple password generator")
     .option("-l, --length <number>", "length of password", "10")
     .option("-s, --save", "save password to passwords.txt", false)
-    .option("-nn, --no-numbers", "remove numbers")
-    .option("-ns, --no-symbols", "remove symbols")
+    .option("-el --exclude-lower", "exclude lower letters", false)
+    .option("-eu --exclude-upper", "exclude upper letters", false)
+    .option("-en --exclude-numbers", "exclude number", false)
+    .option("-es --exclude-symbols", "exclude symbols", false)
     .option("-cp --copy", "copy to clipboard", false)
-    .option("-p --pin", false)
+    .option("-p --pin", "create PIN", false)
     .parse();
 
-  const { length, save, numbers, symbols, copy, pin } = program.opts();
+  const { length, save, excludeLower: el, excludeUpper: eu, excludeNumbers: en, excludeSymbols: es, copy, pin } = program.opts();
 
   // Check length
   if (!isBetween(length, pin)) {
@@ -28,18 +29,18 @@ const gpass = () => {
     return;
   }
 
-  // Create password or PIN
-  let generated;
-  if (pin) generated = createPIN(length);
-  else generated = createPassword(length, numbers, symbols);
-  log("success", `${pin ? "PIN" : "Password"} generated`, generated);
+  // Create password
+  let password;
+  if (pin) password = createPassword(false, false, true, false, length);
+  else password = createPassword(!el, !eu, !en, !es, length);
+  log("success", `${pin ? "PIN" : "Password"} generated`, password);
 
-  // Save password or PIN
-  if (save) savePassword(generated);
+  // Save password
+  if (save) savePassword(password);
 
   // Copy to clipboard
   if (copy) {
-    clipboardy.writeSync(generated);
+    clipboardy.writeSync(password);
     if (pin) log("info", "PIN successfully copied to clipboard!");
     else log("info", "Password successfully copied to clipboard");
   }

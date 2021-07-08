@@ -6,13 +6,13 @@ test("should create password", () => {
 });
 
 test("should have minimum eight characters, at least one letter and one number", () => {
-  const password = createPassword(12, true, false);
+  const password = createPassword(true, true, true, false);
   const pass = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password);
   expect(pass).toBeTruthy();
 });
 
 test("should have minimum eight characters, at least one letter, one number and one special character", () => {
-  const password = createPassword(15, true, true);
+  const password = createPassword();
   // eslint-disable-next-line prettier/prettier
   const pass = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(password);
   expect(pass).toBeTruthy();

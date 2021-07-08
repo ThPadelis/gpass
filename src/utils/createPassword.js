@@ -1,23 +1,21 @@
-const generatePassword = (length, chars) => {
-  let password = "";
-  for (let i = 0; i < length; i++) {
-    password += chars.charAt(Math.floor(Math.random() * chars.length));
+const getRandom = require("./getRandom");
+
+const createPassword = (lower = true, upper = true, number = true, symbol = true, length = 10) => {
+  let generatedPassword = "";
+  const typesCount = lower + upper + number + symbol;
+  const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter((item) => Object.values(item)[0]);
+
+  if (typesCount === 0) return "";
+
+  for (let i = 0; i < length; i += typesCount) {
+    for (let j = 0; j < typesArr.length; j++) {
+      const element = typesArr[j];
+      const name = Object.keys(element)[0];
+      generatedPassword += getRandom[name]();
+    }
   }
-  return password;
-};
 
-const createPassword = (length = 10, hasNumbers = true, hasSymbols = true) => {
-  const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-  const upperCase = lowerCase.toUpperCase();
-  const letters = `${lowerCase}${upperCase}`;
-  const numbers = "0123456789";
-  const symbols = "!@#$%^&*()-_=+";
-
-  let chars = letters;
-  hasNumbers ? (chars += numbers) : "";
-  hasSymbols ? (chars += symbols) : "";
-
-  return generatePassword(length, chars);
+  return generatedPassword.slice(0, length);
 };
 
 module.exports = createPassword;
