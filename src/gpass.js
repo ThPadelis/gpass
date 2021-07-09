@@ -5,6 +5,8 @@ const savePassword = require("./utils/savePassword");
 const isBetween = require("./utils/isBetween");
 const log = require("./utils/logger");
 const { version } = require("../package.json");
+const getEntropy = require("./utils/getEntropy");
+const info = require("./utils/info");
 
 const gpass = () => {
   program
@@ -21,6 +23,8 @@ const gpass = () => {
     .parse();
 
   const { length, save, excludeLower: el, excludeUpper: eu, excludeNumbers: en, excludeSymbols: es, copy, pin } = program.opts();
+
+  info();
 
   // Check length
   if (!isBetween(length, pin)) {
@@ -44,6 +48,8 @@ const gpass = () => {
     if (pin) log("info", "PIN successfully copied to clipboard!");
     else log("info", "Password successfully copied to clipboard");
   }
+
+  log("info", `Entropy is ${getEntropy(password)}`);
 };
 
 module.exports = gpass;

@@ -1,5 +1,9 @@
 # gPass - Random Password Generator
 
+![npm](https://img.shields.io/npm/v/@thpadelis/gpass?label=version&style=flat-square)
+![npm](https://img.shields.io/npm/dt/@thpadelis/gpass?style=flat-square)
+![NPM](https://img.shields.io/npm/l/@thpadelis/gpass?style=flat-square)
+
 ## Table of Contents
 
 - [What is gPass?](#what-is-gpass)
@@ -30,11 +34,13 @@ Options:
 
 - `-V`, `--version` output the version number
 - `-l`, `--length <number>` length of password (default: "10")
-- `-s`, `--save` save password to passwords.txt in your current location (default: false)
-- `-nn`, `--no-numbers` remove numbers
-- `-ns`, `--no-symbols` remove symbols
+- `-s`, `--save` save password to passwords.txt (default: false)
+- `-el` `--exclude-lower` exclude lower letters (default: false)
+- `-eu` `--exclude-upper` exclude upper letters (default: false)
+- `-en` `--exclude-numbers` exclude number (default: false)
+- `-es` `--exclude-symbols` exclude symbols (default: false)
 - `-cp` `--copy` copy to clipboard (default: false)
-- `-p`, `--pin` create PIN
+- `-p` `--pin` create PIN (default: false)
 - `-h`, `--help` display help for command
 
 ## Examples
@@ -45,22 +51,22 @@ Generate password with length of 20 characters
 gpass -l 20
 ```
 
-Generate password with no symbol
+Generate password with no symbols
 
 ```sh
-gpass --no-symbols
+gpass -es
 ```
 
 Generate password with no numbers
 
 ```sh
-gpass --no-numbers
+gpass -en
 ```
 
 Generate password with only letters and length of 16
 
 ```sh
-gpass -ns -nn -l 16
+gpass -l 16 -es -en
 ```
 
 Create PIN
