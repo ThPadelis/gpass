@@ -21,7 +21,8 @@
   },
   "files": [
     "index.js",
-    "src/utils/*"
+    "src/utils/*",
+    "src/gpass.js"
   ],
   "license": "MIT",
   "dependencies": {
