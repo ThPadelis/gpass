@@ -34,13 +34,14 @@ Options:
 
 - `-V`, `--version` output the version number
 - `-l`, `--length <number>` length of password (default: "10")
+- `-n`, `--number <number>` generate number of passwords (default: "1")
 - `-s`, `--save` save password to passwords.txt (default: false)
-- `-el` `--exclude-lower` exclude lower letters (default: false)
-- `-eu` `--exclude-upper` exclude upper letters (default: false)
-- `-en` `--exclude-numbers` exclude number (default: false)
-- `-es` `--exclude-symbols` exclude symbols (default: false)
-- `-cp` `--copy` copy to clipboard (default: false)
-- `-p` `--pin` create PIN (default: false)
+- `-el`, `--exclude-lower` exclude lower letters (default: false)
+- `-eu`, `--exclude-upper` exclude upper letters (default: false)
+- `-en`, `--exclude-numbers` exclude number (default: false)
+- `-es`, `--exclude-symbols` exclude symbols (default: false)
+- `-cp`, `--copy` copy to clipboard (default: false)
+- `-p`, `--pin` create PIN (default: false)
 - `-h`, `--help` display help for command
 
 ## Examples
