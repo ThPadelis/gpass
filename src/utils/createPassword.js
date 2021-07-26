@@ -1,5 +1,16 @@
 const getRandom = require("./getRandom");
 
+/**
+ * Shuffles array in place
+ * @param {String[]} array
+ * @returns {String[]}
+ */
+const shuffleArray = (array) =>
+  array
+    .map((a) => [Math.random(), a])
+    .sort((a, b) => a[0] - b[0])
+    .map((a) => a[1]);
+
 const createPassword = (lower = true, upper = true, number = true, symbol = true, length = 10) => {
   let generatedPassword = "";
   const typesCount = lower + upper + number + symbol;
@@ -15,7 +26,9 @@ const createPassword = (lower = true, upper = true, number = true, symbol = true
     }
   }
 
-  return generatedPassword.slice(0, length);
+  const passwordArray = generatedPassword.split("");
+  const password = shuffleArray(passwordArray).join("");
+  return password.slice(0, length);
 };
 
 module.exports = createPassword;
